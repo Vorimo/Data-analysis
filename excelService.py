@@ -23,7 +23,13 @@ def gather_data_from_raw_extractions(extractions_file_names, save_path: str):
         # sanitize numeric input
         prepared_extraction_df['Amount'] = prepared_extraction_df['Amount'].apply(lambda x: sanitize_numeric_input(x))
         full_data = pd.concat([full_data, prepared_extraction_df])
+    a = full_data.groupby('Category').sum().reset_index().sort_values(by='Amount')
     save_df_to_csv(full_data, save_path)
+
+
+def get_category_spending(file: str):
+    df = read_from_excel(file)
+    return df.groupby('Category').sum().reset_index().sort_values(by='Amount')
 
 
 def save_df_to_csv(df, save_path: str):
@@ -34,7 +40,7 @@ def save_df_to_csv(df, save_path: str):
     prepared_extraction_file.close()
 
 
-def read_from_excel(file_name, columns):
+def read_from_excel(file_name, columns=None):
     return pd.read_csv(file_name, sep=';', usecols=columns)
 
 

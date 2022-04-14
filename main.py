@@ -14,5 +14,10 @@ if __name__ == '__main__':
     x_label = 'date'
     y_label = 'amount'
     title = 'Money spending data'
+    # plot full extraction info by date
     plotService.plot_df(full_extraction, columns_to_show, x_label, y_label, title, 'BYN')
     plotService.save_plot_and_show('extractions/plots/full_data.png')
+    # plot bar with categories spending ordered by amount
+    category_spending = excelService.get_category_spending(output_file)
+    plotService.plot_chart_df(category_spending['Category'], category_spending['Amount'])
+    plotService.save_plot_and_show('extractions/plots/category_spending.png')

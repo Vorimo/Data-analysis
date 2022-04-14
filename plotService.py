@@ -16,6 +16,10 @@ def plot_df(data, columns_to_show: list, x_label: str, y_label: str,
     plt.legend()
 
 
+def plot_chart_df(x_series, y_series):
+    plt.bar(x_series, y_series)
+
+
 def save_plot_and_show(file_name: str):
     plt.savefig(file_name)
     plt.show()
