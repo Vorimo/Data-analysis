@@ -16,7 +16,9 @@ def plot_df(data, columns_to_show: list, x_label: str, y_label: str,
     plt.legend()
 
 
-def plot_chart_df(x_series, y_series):
+def plot_chart_df(x_series, y_series, x_label: str, y_label: str):
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
     plt.bar(x_series, y_series)
 
 
