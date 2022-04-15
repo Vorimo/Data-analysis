@@ -20,6 +20,7 @@ def plot_chart_df(x_series, y_series, x_label: str, y_label: str):
     plt.ylabel(y_label)
     plt.figure(figsize=(25, 27), dpi=60)
     plt.xticks(rotation='vertical')
+    plt.grid()
     plt.bar(x_series, y_series)
 
 
