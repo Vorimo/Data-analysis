@@ -1,5 +1,4 @@
 import numpy
-
 import matplotlib.pyplot as plt
 
 
@@ -19,6 +18,8 @@ def plot_df(data, columns_to_show: list, x_label: str, y_label: str,
 def plot_chart_df(x_series, y_series, x_label: str, y_label: str):
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.figure(figsize=(25, 27), dpi=60)
+    plt.xticks(rotation='vertical')
     plt.bar(x_series, y_series)
 
 
